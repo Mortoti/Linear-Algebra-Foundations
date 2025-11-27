@@ -12,7 +12,7 @@ Mathematical thinking isn't linear. It involves false starts, crossed-out attemp
 
 ## Completed Problem Sets
 
-### 📄 [Matrix Addition](./matrix_addition.pdf)
+### 📄 [Matrix Addition](./Matrix_Addition.pdf)
 **Topics Covered:** Basic matrix addition operations, element-wise computation
 
 **Problems:**
