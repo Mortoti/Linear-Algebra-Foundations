@@ -29,10 +29,25 @@ Mathematical thinking isn't linear. It involves false starts, crossed-out attemp
 
 ---
 
+### 📄 [Scalar Multiplication](./Scalar_Multiplication.pdf)
+**Topics Covered:** Multiplying matrices by scalar values
+
+**Problems:**
+- Scalar multiplication problems with various matrix sizes
+
+**Approach:** Direct computation showing how each entry is multiplied by the scalar.
+
+**What you'll see:**
+- Straightforward scalar × matrix calculations
+- Each element multiplied individually
+- Clear final results
+- Efficient problem-solving
+
+---
+
 ## Coming Soon
 
 As the course progresses, this directory will expand to include solutions for:
-- Scalar multiplication
 - Matrix multiplication 
 - Transpose operations
 - Systems of linear equations
