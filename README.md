@@ -30,7 +30,7 @@ Theory, definitions, and conceptual breakdowns. Each topic builds from axioms to
 ### 📋 [Assignments](./assignments)
 Original problem sets covering proofs, computations, and real-world applications. Questions range from row reduction to characteristic polynomials.
 
-### ✍️ [Solutions](./answers)
+### ✍️ [Solutions](./solutions)
 Handwritten solutions with complete workings. The scratched-out attempts and margin notes stay in—they're part of the learning process.
 
 ---
