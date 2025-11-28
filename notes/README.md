@@ -206,3 +206,55 @@ Original (3×2):         Transpose (2×3):
 | rA (scalar × matrix) | None | Works with any matrix ✅ |
 | AB | Columns of A = Rows of B | (2×**3**)()**3**×4) ✅ |
 | A^T | None | Any matrix can be transposed ✅ |
+
+
+# Matrix Fundamentals & Notation
+
+## 1. The Matrix & Indexing $(i, j)$
+
+A matrix is essentially a **2D Array** or a grid of numbers. We describe its size as $m \times n$.
+* $m$ = Number of **Rows** (Horizontal lines)
+* $n$ = Number of **Columns** (Vertical lines)
+
+### The $(i, j)$ Notation
+To pinpoint a specific number in matrix $A$, we use the coordinates $a_{ij}$.
+* $i$ represents the **Row** number.
+* $j$ represents the **Column** number.
+
+$$
+A = \begin{bmatrix}
+a_{11} & a_{12} & a_{13} \\
+a_{21} & a_{22} & a_{23} \\
+a_{31} & a_{32} & a_{33}
+\end{bmatrix}
+$$
+
+> **⚠️ CRITICAL WARNING FOR PROGRAMMERS**
+> * **Math is 1-indexed:** The first element is $a_{11}$ (Row 1, Col 1).
+> * **Code is 0-indexed:** In Python/C++, the first element is `A[0][0]`.
+> * *Translation:* Math $a_{ij}$ $\rightarrow$ Code `A[i-1][j-1]`
+
+---
+
+## 2. Column Vectors (The "Data" View)
+
+We can think of a matrix $A$ not just as a block of numbers, but as a collection of **Column Vectors** standing side-by-side.
+
+$$
+A = [\vec{a}_1 \quad \vec{a}_2 \quad \dots \quad \vec{a}_n]
+$$
+
+### Programmer's Intuition
+Think of the matrix as a **Database Table**:
+* The **Matrix** is the whole table.
+* Each **Column Vector** ($\vec{a}_j$) is a specific field (e.g., `[Age]`, `[Height]`, `[Salary]`).
+* Each **Row** is a specific user record.
+
+```python
+# A 3x3 Matrix viewed as 3 Column Vectors
+col_1 = [1, 4, 7]
+col_2 = [2, 5, 8]
+col_3 = [3, 6, 9]
+
+matrix = [col_1, col_2, col_3] # Grouping vectors
+
