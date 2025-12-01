@@ -167,58 +167,47 @@ $$
 ## 5. Inverse of a Matrix ($A^{-1}$)
 
 ### 1. The Core Definition
-
-**Requirement:** The matrix MUST be **Square** ($n \times n$). You cannot invert a non-square matrix.
-
-**The Identity Property:** A matrix $A$ is invertible if there exists a matrix $A^{-1}$ such that:
-
+- **Requirement:** The matrix MUST be **Square** ($n \times n$).
+- **The Identity Property:** A matrix $A$ is invertible if:
 $$A \cdot A^{-1} = I \quad \text{and} \quad A^{-1} \cdot A = I$$
 
-*(Where $I$ is the Identity Matrix containing 1s on the diagonal and 0s elsewhere).*
-
 ### 2. Invertible vs. Singular
-
-**Invertible (Non-Singular):** The inverse exists. The determinant is **not zero**.
-
-**Non-Invertible (Singular):** The inverse does **not** exist. The determinant **is zero**.
-- *Intuition:* A singular matrix squashes space into a lower dimension (like flattening a 3D box into a 2D sheet), so you can't "reverse" the process.
+- **Invertible (Non-Singular):** The inverse exists. $\det(A) \neq 0$.
+- **Non-Invertible (Singular):** The inverse does **not** exist. $\det(A) = 0$.
 
 ### 3. The $2 \times 2$ Formula
-
 Given matrix $A = \begin{bmatrix} a & b \\ c & d \end{bmatrix}$:
 
 **Step 1:** Calculate the Determinant ($det$).
-
 $$\det(A) = ad - bc$$
 
 **Step 2:** Apply the Formula.
-
-$A^{-1} = \frac{1}{\det(A)} \begin{bmatrix} d & -b \\ -c & a \end{bmatrix}$
-
-*Mechanics:* Swap the positions of $a$ and $d$. Change the signs of $b$ and $c$. Divide everything by the determinant.
+$$
+A^{-1} = \frac{1}{\det(A)} \begin{bmatrix} d & -b \\ -c & a \end{bmatrix}
+$$
+*Mechanics:* Swap $a$ and $d$. Negate $b$ and $c$. Divide by determinant.
 
 ### 4. Examples
 
 **Example 1: Invertible Matrix**
-
-$A = \begin{bmatrix} 4 & 7 \\ 2 & 6 \end{bmatrix}$
-
-1. **Det:** $(4)(6) - (7)(2) = 24 - 14 = 10$.
-2. **Rearrange:** Swap diagonals, negate off-diagonals $\rightarrow \begin{bmatrix} 6 & -7 \\ -2 & 4 \end{bmatrix}$.
+$$
+A = \begin{bmatrix} 4 & 7 \\ 2 & 6 \end{bmatrix}
+$$
+1. **Det:** $(4)(6) - (7)(2) = 10$.
+2. **Swap & Negate:** $\begin{bmatrix} 6 & -7 \\ -2 & 4 \end{bmatrix}$.
 3. **Final Inverse:**
-   $A^{-1} = \frac{1}{10} \begin{bmatrix} 6 & -7 \\ -2 & 4 \end{bmatrix} = \begin{bmatrix} 0.6 & -0.7 \\ -0.2 & 0.4 \end{bmatrix}$
+$$
+A^{-1} = \frac{1}{10} \begin{bmatrix} 6 & -7 \\ -2 & 4 \end{bmatrix} = \begin{bmatrix} 0.6 & -0.7 \\ -0.2 & 0.4 \end{bmatrix}
+$$
 
-**Example 2: Singular Matrix (No Inverse)**
+**Example 2: Singular Matrix**
+$$
+B = \begin{bmatrix} 1 & 2 \\ 2 & 4 \end{bmatrix}
+$$
+1. **Det:** $(1)(4) - (2)(2) = 0$.
+2. **Result:** Division by zero is impossible. $B$ is **Singular**.
 
-$B = \begin{bmatrix} 1 & 2 \\ 2 & 4 \end{bmatrix}$
-
-1. **Det:** $(1)(4) - (2)(2) = 4 - 4 = 0$.
-2. **Result:** Since we cannot divide by $0$, $B$ is **Singular** (Non-invertible).
-
-### 💻 Programming Context (Why this matters in CS)
-
+### 💻 Programming Context
 **Division doesn't exist:** In Matrix Algebra, you cannot divide $B / A$. Instead, you multiply by the inverse: $B \cdot A^{-1}$.
 
-**Graphics & Undo Buttons:** In game development, if a Transformation Matrix $T$ moves a character forward, the Inverse Matrix $T^{-1}$ moves them backward. If $T$ is singular, the transformation is destructive (information is lost) and cannot be undone.
-
-**System Solving:** We use inverses to solve linear systems ($Ax = b \rightarrow x = A^{-1}b$), though computationally we usually avoid calculating full inverses for large matrices due to high definition costs.
+**Graphics & Undo Buttons:** If transformation $T$ moves a character, $T^{-1}$ undoes it. If $T$ is singular, the movement cannot be undone.
