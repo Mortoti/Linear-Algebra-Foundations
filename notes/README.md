@@ -185,7 +185,7 @@ $$A \cdot A^{-1} = I \quad \text{and} \quad A^{-1} \cdot A = I$$
 
 ### 3. The $2 \times 2$ Formula
 
-Given matrix $A = \begin{bmatrix} a & b \\\\ c & d \end{bmatrix}$:
+Given matrix $A = \begin{bmatrix} a & b \\ c & d \end{bmatrix}$:
 
 **Step 1:** Calculate the Determinant ($det$).
 
@@ -193,7 +193,7 @@ $$\det(A) = ad - bc$$
 
 **Step 2:** Apply the Formula.
 
-$$A^{-1} = \frac{1}{\det(A)} \begin{bmatrix} d & -b \\\\ -c & a \end{bmatrix}$$
+$A^{-1} = \frac{1}{\det(A)} \begin{bmatrix} d & -b \\ -c & a \end{bmatrix}$
 
 *Mechanics:* Swap the positions of $a$ and $d$. Change the signs of $b$ and $c$. Divide everything by the determinant.
 
@@ -201,16 +201,16 @@ $$A^{-1} = \frac{1}{\det(A)} \begin{bmatrix} d & -b \\\\ -c & a \end{bmatrix}$$
 
 **Example 1: Invertible Matrix**
 
-$$A = \begin{bmatrix} 4 & 7 \\\\ 2 & 6 \end{bmatrix}$$
+$A = \begin{bmatrix} 4 & 7 \\ 2 & 6 \end{bmatrix}$
 
 1. **Det:** $(4)(6) - (7)(2) = 24 - 14 = 10$.
-2. **Rearrange:** Swap diagonals, negate off-diagonals $\rightarrow \begin{bmatrix} 6 & -7 \\\\ -2 & 4 \end{bmatrix}$.
+2. **Rearrange:** Swap diagonals, negate off-diagonals $\rightarrow \begin{bmatrix} 6 & -7 \\ -2 & 4 \end{bmatrix}$.
 3. **Final Inverse:**
-   $$A^{-1} = \frac{1}{10} \begin{bmatrix} 6 & -7 \\\\ -2 & 4 \end{bmatrix} = \begin{bmatrix} 0.6 & -0.7 \\\\ -0.2 & 0.4 \end{bmatrix}$$
+   $A^{-1} = \frac{1}{10} \begin{bmatrix} 6 & -7 \\ -2 & 4 \end{bmatrix} = \begin{bmatrix} 0.6 & -0.7 \\ -0.2 & 0.4 \end{bmatrix}$
 
 **Example 2: Singular Matrix (No Inverse)**
 
-$$B = \begin{bmatrix} 1 & 2 \\\\ 2 & 4 \end{bmatrix}$$
+$B = \begin{bmatrix} 1 & 2 \\ 2 & 4 \end{bmatrix}$
 
 1. **Det:** $(1)(4) - (2)(2) = 4 - 4 = 0$.
 2. **Result:** Since we cannot divide by $0$, $B$ is **Singular** (Non-invertible).
