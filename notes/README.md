@@ -245,3 +245,73 @@ B = \begin{bmatrix} 1 & 2 \\ 2 & 4 \end{bmatrix}
 **Graphics & Undo Buttons:** In game development, if a Transformation Matrix T moves a character forward, the Inverse Matrix T<sup>-1</sup> moves them backward. If T is singular, the transformation is destructive (information is lost) and cannot be undone.
 
 **System Solving:** We use inverses to solve linear systems (Ax = b → x = A<sup>-1</sup>b), though computationally we usually avoid calculating full inverses for large matrices due to high computational costs.
+
+---
+
+## 6. Solving Linear Systems (Ax = b)
+
+### 1. The Logic
+
+We want to solve for vector x in the equation Ax = b.
+
+Since matrices cannot divide, we multiply by the inverse (A<sup>-1</sup>) to "cancel out" A.
+
+```math
+Ax = b \quad \rightarrow \quad A^{-1}Ax = A^{-1}b \quad \rightarrow \quad Ix = A^{-1}b \quad \rightarrow \quad x = A^{-1}b
+```
+
+### 2. The Algorithm (Step-by-Step)
+
+**Problem:** Solve for x and y.
+
+```math
+\begin{cases}
+2x + 3y = 8 \\
+1x + 4y = 9
+\end{cases}
+```
+
+**Step 1: Convert to Matrix Form** (Ax = b)
+
+```math
+\underbrace{\begin{bmatrix} 2 & 3 \\ 1 & 4 \end{bmatrix}}_{A} \cdot \underbrace{\begin{bmatrix} x \\ y \end{bmatrix}}_{x} = \underbrace{\begin{bmatrix} 8 \\ 9 \end{bmatrix}}_{b}
+```
+
+**Step 2: Check Existence (Determinant)**
+
+```math
+\det(A) = (2)(4) - (3)(1) = 5
+```
+
+*Result:* 5 ≠ 0, so the inverse exists. Proceed.
+
+**Step 3: Find the Inverse (A<sup>-1</sup>)**
+
+```math
+A^{-1} = \frac{1}{5} \begin{bmatrix} 4 & -3 \\ -1 & 2 \end{bmatrix}
+```
+
+**Step 4: The "Kill Shot" (x = A<sup>-1</sup>b)**
+
+Multiply the **Inverse** by the **Answer Vector**.
+
+```math
+\begin{bmatrix} x \\ y \end{bmatrix} = \frac{1}{5} \begin{bmatrix} 4 & -3 \\ -1 & 2 \end{bmatrix} \cdot \begin{bmatrix} 8 \\ 9 \end{bmatrix}
+```
+
+*Multiply the matrices first (Row by Column):*
+- Row 1: (4 · 8) + (-3 · 9) = 32 - 27 = 5
+- Row 2: (-1 · 8) + (2 · 9) = -8 + 18 = 10
+
+```math
+\begin{bmatrix} x \\ y \end{bmatrix} = \frac{1}{5} \begin{bmatrix} 5 \\ 10 \end{bmatrix} = \begin{bmatrix} 1 \\ 2 \end{bmatrix}
+```
+
+**Answer:** x = 1, y = 2
+
+### ⚠️ The "Fatal Flaws" (Exam Traps)
+
+1. **The Order Rule:** You **MUST** multiply on the left (A<sup>-1</sup>b).
+   - bA<sup>-1</sup> is mathematically impossible (dimension mismatch).
+2. **The Singular Trap:** If det(A) = 0, stop.
+   - Write: *"The system has no unique solution."*
